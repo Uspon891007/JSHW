@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .card {
+            height: 1000px;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #x {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #x99 {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #x101 {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #y {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        #y49 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        #y51 {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        #search div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #message {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #message20001 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #message30001 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #message40001 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #message div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #message20001 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #message30001 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #message40001 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #x div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #x99 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #x101 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #y div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #y49 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #y51 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        #pricerange3c {
+            display: none;
+        }
+
+        #pricerangedrink {
+            display: none;
+        }
+
+        #pricerangeeat {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">顯示全部商品</button>
+    <input type="text" id="search-input" value="請輸入商品名稱">
+    <button id="search-button">搜尋</button>
+    <input type="checkbox" id="myCheckbox">3c
+    <input type="checkbox" id="drinkCheckbox">飲料
+    <input type="checkbox" id="eatCheckbox">食品
+    <div id="pricerange3c">
+        <p>3C價格範圍</p>
+        <input type="checkbox" id="price20001Checkbox">20000-30000
+        <input type="checkbox" id="price30001Checkbox">30000-40000
+        <input type="checkbox" id="price40001Checkbox">40000以上
+    </div>
+    <div id="pricerangedrink">
+        <p>飲料價格範圍</p>
+        <input type="checkbox" id="price99Checkbox">100以下
+        <input type="checkbox" id="price101Checkbox">100以上
+    </div>
+    <div id="pricerangeeat">
+        <p>食品價格範圍</p>
+        <input type="checkbox" id="price49Checkbox">50以下
+        <input type="checkbox" id="price51Checkbox">50以上
+    </div>
+    <!-- <button id="clear-btn">清空資料</button> -->
+    <div class="card" id="card">
+        <div id="search"></div>
+        <div id="message"></div>
+        <div id="message20001"></div>
+        <div id="message30001"></div>
+        <div id="message40001"></div>
+        <div id="x"></div>
+        <div id="x99"></div>
+        <div id="x101"></div>
+        <div id="y"></div>
+        <div id="y49"></div>
+        <div id="y51"></div>
+        <ul id="myList">
+    </div>
+
+    </ul>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script type="module">
+        import { product } from "../JSHW/product.js";
+
+        var myList = document.getElementById("myList");
+        var btn = document.getElementById("btn");
+        var producttype = document.getElementsByName("producttype");
+        btn.onclick = function () {
+            product.forEach(item => {
+                var li = document.createElement("li");
+                li.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                myList.append(li);
+            });
+        };
+        const card = document.getElementById('card');
+        const searchButton = document.getElementById('search-button');
+        const clearButton = document.getElementById('clear-btn');
+        const btnsearch = document.getElementById("btnsearch");
+        const checkbox = document.getElementById('myCheckbox');
+        const drinkcheckbox = document.getElementById('drinkCheckbox');
+        const eatcheckbox = document.getElementById('eatCheckbox');
+        const price20001Checkbox = document.getElementById('price20001Checkbox');
+        const price30001Checkbox = document.getElementById('price30001Checkbox');
+        const price40001Checkbox = document.getElementById('price40001Checkbox');
+        const price99Checkbox = document.getElementById('price99Checkbox');
+        const price101Checkbox = document.getElementById('price101Checkbox');
+        const price49Checkbox = document.getElementById('price49Checkbox');
+        const price51Checkbox = document.getElementById('price51Checkbox');
+        const search = document.getElementById('search');
+        const message = document.getElementById('message');
+        const message20001 = document.getElementById('message20001');
+        const message30001 = document.getElementById('message30001');
+        const message40001 = document.getElementById('message40001');
+        const x = document.getElementById('x');
+        const x99 = document.getElementById('x99');
+        const x101 = document.getElementById('x101');
+        const y = document.getElementById('y');
+        const y49 = document.getElementById('y49');
+        const y51 = document.getElementById('y51');
+        const pricerange3c = document.getElementById('pricerange3c');
+        const pricerangedrink = document.getElementById('pricerangedrink');
+        const pricerangeeat = document.getElementById('pricerangeeat');
+        // const resultname = product.filter(function (item, index, array) {
+        //     return item.ProductName == Searchbox;
+        // });
+        const result3c = product.filter(function (item, index, array) {
+            return item.ProductType == "3C";
+        });
+        const resultdrink = product.filter(function (item, index, array) {
+            return item.ProductType == "飲料";
+        });
+        const resulteat = product.filter(function (item, index, array) {
+            return item.ProductType == "食品";
+        });
+        const result3crange20001 = result3c.filter(function (item, index, arry) {
+            return item.Price >= 20000 && item.Price <= 30000;
+        });
+        const result3crange30001 = result3c.filter(function (item, index, arry) {
+            return item.Price > 30000 && item.Price <= 40000;
+        });
+        const result3crange40001 = result3c.filter(function (item, index, arry) {
+            return item.Price > 40000;
+        });
+        const resultdrinkrange99 = resultdrink.filter(function (item, index, arry) {
+            return item.Price < 100;
+        });
+        const resultdrinkrange101 = resultdrink.filter(function (item, index, arry) {
+            return item.Price >= 100;
+        });
+        const resulteatrange49 = resulteat.filter(function (item, index, arry) {
+            return item.Price < 50;
+        });
+        const resulteatrange51 = resulteat.filter(function (item, index, arry) {
+            return item.Price >= 50;
+        });
+
+        //搜尋
+        searchButton.addEventListener('click', () => {
+            const userInput = document.getElementById('search-input').value;
+            const result = product.filter(item => item.ProductName === userInput);
+            const div = document.querySelector('#search');
+                div.innerHTML = '';
+            result.forEach(item=>{
+                var div = document.createElement("div");
+                div.innerText=`${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                search.append(div);
+            })
+            // search.innerText = `${Object.value(result.ProductName)} ${result.ProductName} ${result.Amount} ${result.Price} ${result.ProductType}`;
+        });
+
+        //清除
+        // clearButton.addEventListener('click', () => {
+        //     const div = document.querySelector('#card');
+        //         div.innerHTML = '';
+        // });
+
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                myList.innerHTML = '';
+                const div = document.querySelector('#search');
+                div.innerHTML = '';
+                pricerange3c.style.display = 'block';
+                result3c.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerHTML = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    message.append(div);
+
+                });
+            } else {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+                pricerange3c.style.display = 'none';
+            }
+
+        });
+        drinkcheckbox.addEventListener('change', function () {
+            if (drinkcheckbox.checked) {
+                myList.innerHTML = '';
+                const div = document.querySelector('#search');
+                div.innerHTML = '';
+                pricerangedrink.style.display = 'block';
+                resultdrink.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    x.append(div);
+                });
+
+            } else {
+                const div = document.querySelector('#x');
+                div.innerHTML = '';
+                pricerangedrink.style.display = 'none';
+            }
+
+        });
+
+        eatcheckbox.addEventListener('change', function () {
+            if (eatcheckbox.checked) {
+                myList.innerHTML = '';
+                const div = document.querySelector('#search');
+                div.innerHTML = '';
+                pricerangeeat.style.display = 'block';
+                resulteat.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    y.append(div);
+                });
+
+            } else {
+                const div = document.querySelector('#y');
+                div.innerHTML = '';
+                pricerangeeat.style.display = 'none';
+            }
+
+        });
+
+        price20001Checkbox.addEventListener('change', function () {
+            if (price20001Checkbox.checked) {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+                result3crange20001.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    message20001.append(div);
+                });
+            } else {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+                const div20001 = document.querySelector('#message20001');
+                div20001.innerHTML = '';
+            }
+        });
+
+        price30001Checkbox.addEventListener('change', function () {
+            if (price30001Checkbox.checked) {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+
+                result3crange30001.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    message30001.append(div);
+                });
+            } else {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+                const div30001 = document.querySelector('#message30001');
+                div30001.innerHTML = '';
+            }
+        });
+        price40001Checkbox.addEventListener('change', function () {
+            if (price40001Checkbox.checked) {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+
+                result3crange40001.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    message40001.append(div);
+                });
+            } else {
+                const div = document.querySelector('#message');
+                div.innerHTML = '';
+                const div40001 = document.querySelector('#message40001');
+                div40001.innerHTML = '';
+            }
+        });
+
+        //飲料
+        price99Checkbox.addEventListener('change', function () {
+            if (price99Checkbox.checked) {
+                const div = document.querySelector('#x');
+                div.innerHTML = '';
+
+                resultdrinkrange99.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    x99.append(div);
+                });
+            } else {
+                const div99 = document.querySelector('#x99');
+                div99.innerHTML = '';
+            }
+        });
+        price101Checkbox.addEventListener('change', function () {
+            if (price101Checkbox.checked) {
+                const div = document.querySelector('#x');
+                div.innerHTML = '';
+
+                resultdrinkrange101.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    x101.append(div);
+                });
+            } else {
+                const div101 = document.querySelector('#x101');
+                div101.innerHTML = '';
+            }
+        });
+
+        //食品
+        price49Checkbox.addEventListener('change', function () {
+            if (price49Checkbox.checked) {
+                const div = document.querySelector('#y');
+                div.innerHTML = '';
+
+                resulteatrange49.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    y49.append(div);
+                });
+            } else {
+                const div49 = document.querySelector('#y49');
+                div49.innerHTML = '';
+            }
+        });
+        price51Checkbox.addEventListener('change', function () {
+            if (price51Checkbox.checked) {
+                const div = document.querySelector('#y');
+                div.innerHTML = '';
+
+                resulteatrange51.forEach(item => {
+                    var div = document.createElement("div");
+                    div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                    y51.append(div);
+                });
+            } else {
+                const div51 = document.querySelector('#y51');
+                div51.innerHTML = '';
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
