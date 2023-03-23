@@ -9,9 +9,12 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Document</title>
     <style>
+        body{
+            background-color: antiquewhite;
+        }
         .card {
             height: 1000px;
-            width: 90%;
+            width: 100%;
             margin: auto;
             display: flex;
             flex-wrap: wrap;
@@ -55,7 +58,8 @@
             flex-wrap: wrap;
 
         }
-        #search div{
+
+        #search div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
@@ -89,28 +93,29 @@
             width: 300px;
             height: 100px;
             border: 1px solid black;
-            margin: 20px;
+            margin: 25px;
+            background-color: antiquewhite;
         }
 
         #message20001 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
-            margin: 20px;
+            margin: 25px;
         }
 
         #message30001 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
-            margin: 20px;
+            margin: 25px;
         }
 
         #message40001 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
-            margin: 20px;
+            margin: 25px;
         }
 
         #x div {
@@ -157,25 +162,56 @@
 
         #pricerange3c {
             display: none;
+            text-align: center;
         }
 
         #pricerangedrink {
             display: none;
+            text-align: center;
         }
 
         #pricerangeeat {
             display: none;
+            text-align: center;
+        }
+        #btn{
+            display: none;
+        }
+        h1{
+            text-align: center;
+        }
+        .container .row .search #search-button{
+            margin-left: -5px;
+        }
+        @media screen and (min-width: 768px) {
+            .card{
+                width: 80%;
+                margin: auto;
+            }
         }
     </style>
 </head>
 
 <body>
+    <h1>商品查詢</h1>
     <button id="btn">顯示全部商品</button>
-    <input type="text" id="search-input" value="請輸入商品名稱">
-    <button id="search-button">搜尋</button>
-    <input type="checkbox" id="myCheckbox">3c
-    <input type="checkbox" id="drinkCheckbox">飲料
-    <input type="checkbox" id="eatCheckbox">食品
+    <div class="container text-center">
+        <div class="row">
+            <div class="search">
+                <input type="text" id="search-input" value="請輸入商品名稱">
+                <button id="search-button">搜尋</button>
+            </div>
+            <div class="col">
+                <input type="checkbox" id="myCheckbox">3c
+            </div>
+            <div class="col">
+                <input type="checkbox" id="drinkCheckbox">飲料
+            </div>
+            <div class="col">
+                <input type="checkbox" id="eatCheckbox">食品
+            </div>
+        </div>
+    </div>
     <div id="pricerange3c">
         <p>3C價格範圍</p>
         <input type="checkbox" id="price20001Checkbox">20000-30000
@@ -295,10 +331,10 @@
             const userInput = document.getElementById('search-input').value;
             const result = product.filter(item => item.ProductName === userInput);
             const div = document.querySelector('#search');
-                div.innerHTML = '';
-            result.forEach(item=>{
+            div.innerHTML = '';
+            result.forEach(item => {
                 var div = document.createElement("div");
-                div.innerText=`${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
+                div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
                 search.append(div);
             })
             // search.innerText = `${Object.value(result.ProductName)} ${result.ProductName} ${result.Amount} ${result.Price} ${result.ProductType}`;
