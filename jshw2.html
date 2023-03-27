@@ -20,40 +20,40 @@
             flex-wrap: wrap;
         }
 
-        #x {
+        #drink {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
         }
 
-        #x99 {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        #x101 {
+        #drink99 {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        #y {
+        #drink101 {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #eat {
             display: flex;
             flex-wrap: wrap;
 
         }
 
-        #y49 {
+        #eat49 {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
 
         }
 
-        #y51 {
+        #eat51 {
             display: flex;
             flex-wrap: wrap;
 
@@ -66,94 +66,93 @@
             margin: 20px;
         }
 
-        #message {
+        #electronic {
             display: flex;
             flex-wrap: wrap;
         }
 
-        #message20001 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        #message30001 {
+        #electronic20001 {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        #message40001 {
+        #electronic30001 {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        #message div {
-            width: 300px;
-            height: 100px;
-            border: 1px solid black;
-            margin: 25px;
-            background-color: antiquewhite;
+        #electronic40001 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        #message20001 div {
-            width: 300px;
-            height: 100px;
-            border: 1px solid black;
-            margin: 25px;
-        }
-
-        #message30001 div {
+        #electronic div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 25px;
         }
 
-        #message40001 div {
+        #electronic20001 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 25px;
         }
 
-        #x div {
+        #electronic30001 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 25px;
+        }
+
+        #electronic40001 div {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 25px;
+        }
+
+        #drink div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 20px;
         }
 
-        #x99 div {
+        #drink99 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 20px;
         }
 
-        #x101 div {
+        #drink101 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 20px;
         }
 
-        #y div {
+        #eat div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 20px;
         }
 
-        #y49 div {
+        #eat49 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
             margin: 20px;
         }
 
-        #y51 div {
+        #eat51 div {
             width: 300px;
             height: 100px;
             border: 1px solid black;
@@ -231,16 +230,16 @@
     <!-- <button id="clear-btn">清空資料</button> -->
     <div class="card" id="card">
         <div id="search"></div>
-        <div id="message"></div>
-        <div id="message20001"></div>
-        <div id="message30001"></div>
-        <div id="message40001"></div>
-        <div id="x"></div>
-        <div id="x99"></div>
-        <div id="x101"></div>
-        <div id="y"></div>
-        <div id="y49"></div>
-        <div id="y51"></div>
+        <div id="electronic"></div>
+        <div id="electronic20001"></div>
+        <div id="electronic30001"></div>
+        <div id="electronic40001"></div>
+        <div id="drink"></div>
+        <div id="drink99"></div>
+        <div id="drink101"></div>
+        <div id="eat"></div>
+        <div id="eat49"></div>
+        <div id="eat51"></div>
         <ul id="myList">
     </div>
 
@@ -279,16 +278,16 @@
         const price49Checkbox = document.getElementById('price49Checkbox');
         const price51Checkbox = document.getElementById('price51Checkbox');
         const search = document.getElementById('search');
-        const message = document.getElementById('message');
-        const message20001 = document.getElementById('message20001');
-        const message30001 = document.getElementById('message30001');
-        const message40001 = document.getElementById('message40001');
-        const x = document.getElementById('x');
-        const x99 = document.getElementById('x99');
-        const x101 = document.getElementById('x101');
-        const y = document.getElementById('y');
-        const y49 = document.getElementById('y49');
-        const y51 = document.getElementById('y51');
+        const electronic = document.getElementById('electronic');
+        const electronic20001 = document.getElementById('electronic20001');
+        const electronic30001 = document.getElementById('electronic30001');
+        const electronic40001 = document.getElementById('electronic40001');
+        const drink = document.getElementById('drink');
+        const drink99 = document.getElementById('drink99');
+        const drink101 = document.getElementById('drink101');
+        const eat = document.getElementById('eat');
+        const eat49 = document.getElementById('eat49');
+        const eat51 = document.getElementById('eat51');
         const pricerange3c = document.getElementById('pricerange3c');
         const pricerangedrink = document.getElementById('pricerangedrink');
         const pricerangeeat = document.getElementById('pricerangeeat');
@@ -356,11 +355,11 @@
                 result3c.forEach(item => {
                     var div = document.createElement("div");
                     div.innerHTML = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    message.append(div);
+                    electronic.append(div);
 
                 });
             } else {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
                 pricerange3c.style.display = 'none';
             }
@@ -375,11 +374,11 @@
                 resultdrink.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    x.append(div);
+                    drink.append(div);
                 });
 
             } else {
-                const div = document.querySelector('#x');
+                const div = document.querySelector('#drink');
                 div.innerHTML = '';
                 pricerangedrink.style.display = 'none';
             }
@@ -395,11 +394,11 @@
                 resulteat.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    y.append(div);
+                    eat.append(div);
                 });
 
             } else {
-                const div = document.querySelector('#y');
+                const div = document.querySelector('#eat');
                 div.innerHTML = '';
                 pricerangeeat.style.display = 'none';
             }
@@ -408,52 +407,52 @@
 
         price20001Checkbox.addEventListener('change', function () {
             if (price20001Checkbox.checked) {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
                 result3crange20001.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    message20001.append(div);
+                    electronic20001.append(div);
                 });
             } else {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
-                const div20001 = document.querySelector('#message20001');
+                const div20001 = document.querySelector('#electronic20001');
                 div20001.innerHTML = '';
             }
         });
 
         price30001Checkbox.addEventListener('change', function () {
             if (price30001Checkbox.checked) {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
 
                 result3crange30001.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    message30001.append(div);
+                    electronic30001.append(div);
                 });
             } else {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
-                const div30001 = document.querySelector('#message30001');
+                const div30001 = document.querySelector('#electronic30001');
                 div30001.innerHTML = '';
             }
         });
         price40001Checkbox.addEventListener('change', function () {
             if (price40001Checkbox.checked) {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
 
                 result3crange40001.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    message40001.append(div);
+                    electronic40001.append(div);
                 });
             } else {
-                const div = document.querySelector('#message');
+                const div = document.querySelector('#electronic');
                 div.innerHTML = '';
-                const div40001 = document.querySelector('#message40001');
+                const div40001 = document.querySelector('#electronic40001');
                 div40001.innerHTML = '';
             }
         });
@@ -461,31 +460,31 @@
         //飲料
         price99Checkbox.addEventListener('change', function () {
             if (price99Checkbox.checked) {
-                const div = document.querySelector('#x');
+                const div = document.querySelector('#drink');
                 div.innerHTML = '';
 
                 resultdrinkrange99.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    x99.append(div);
+                    drink99.append(div);
                 });
             } else {
-                const div99 = document.querySelector('#x99');
+                const div99 = document.querySelector('#drink99');
                 div99.innerHTML = '';
             }
         });
         price101Checkbox.addEventListener('change', function () {
             if (price101Checkbox.checked) {
-                const div = document.querySelector('#x');
+                const div = document.querySelector('#drink');
                 div.innerHTML = '';
 
                 resultdrinkrange101.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    x101.append(div);
+                    drink101.append(div);
                 });
             } else {
-                const div101 = document.querySelector('#x101');
+                const div101 = document.querySelector('#drink101');
                 div101.innerHTML = '';
             }
         });
@@ -493,31 +492,31 @@
         //食品
         price49Checkbox.addEventListener('change', function () {
             if (price49Checkbox.checked) {
-                const div = document.querySelector('#y');
+                const div = document.querySelector('#eat');
                 div.innerHTML = '';
 
                 resulteatrange49.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    y49.append(div);
+                    eat49.append(div);
                 });
             } else {
-                const div49 = document.querySelector('#y49');
+                const div49 = document.querySelector('#eat49');
                 div49.innerHTML = '';
             }
         });
         price51Checkbox.addEventListener('change', function () {
             if (price51Checkbox.checked) {
-                const div = document.querySelector('#y');
+                const div = document.querySelector('#eat');
                 div.innerHTML = '';
 
                 resulteatrange51.forEach(item => {
                     var div = document.createElement("div");
                     div.innerText = `${item.ProductNumber} ${item.ProductName} ${item.Amount} ${item.Price} ${item.ProductType}`;
-                    y51.append(div);
+                    eat51.append(div);
                 });
             } else {
-                const div51 = document.querySelector('#y51');
+                const div51 = document.querySelector('#eat51');
                 div51.innerHTML = '';
             }
         });
